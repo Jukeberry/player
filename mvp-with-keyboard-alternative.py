@@ -13,7 +13,7 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 print("Booting Jukeberry")
 
-rfidBased = True
+rfidBased = False
 
 def stop(pin):
     now = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S%zZ")
@@ -29,9 +29,9 @@ def play(id, text):
 def keyboardRead():
     i=1
     switcher=[
-        (96675065265, "Bodysnatchers"),
-        (664003290249, "Creep"),
-        (649586696873, "High and Dry")
+        (649586696873, "Bodysnatchers"),
+        (252470762881, "Creep"),
+        (735250948581, "High and Dry")
     ]
     for item in switcher:
         print(str(i) + ": " + str(item))
@@ -42,14 +42,6 @@ def keyboardRead():
     else:
         print("Invalid Option")
         return keyboardRead()
-
-def song(i):
-    switcher={
-        96675065265: "music/ParanoidAndroid.mp3",
-        664003290249: "music/Creep.mp3",
-        649586696873: "music/HighAndDry.mp3",
-    }
-    return switcher.get(i,"INVALID");
 
 mqttTransport = "websockets"
 mqttHost = "mr1nljqp0y1g2d.messaging.solace.cloud"
