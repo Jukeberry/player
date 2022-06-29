@@ -13,7 +13,7 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 print("Booting Jukeberry")
 
-rfidBased = False
+rfidBased = True
 
 def stop(pin):
     now = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S%zZ")
